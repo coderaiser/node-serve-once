@@ -31,7 +31,7 @@
     "report": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^5.0.0-alpha.7",
     "node-fetch": "^2.2.1",
     "pullout": "^2.0.0",
     "webpack-merge": "^4.1.4",

@@ -1,7 +1,6 @@
 'use strict';
 
 const {
-    callbackify,
     promisify,
 } = require('util');
 
@@ -34,10 +33,10 @@ test('serve-once: fetch: get', async (t) => {
 
 test('serve-once: fetch: put: string', async (t) => {
     const middleware = () => {
-        return callbackify(async (req, res) => {
+        return async (req, res) => {
             const data = await pullout(req, 'string');
             res.end(data);
-        });
+        };
     };
     
     const {request} = serveOnce(middleware);
@@ -51,11 +50,11 @@ test('serve-once: fetch: put: string', async (t) => {
 
 test('serve-once: fetch: put', async (t) => {
     const middleware = () => {
-        return callbackify(async (req, res) => {
+        return async (req, res) => {
             const data = await pullout(req, 'string');
             
             res.end(data);
-        });
+        };
     };
     
     const data = [1, 2];
@@ -97,3 +96,16 @@ test('serve-once: fetch: get', async (t) => {
     t.end();
 });
 
+test('serve-once: fetch: status', async (t) => {
+    const middleware = () => {
+        return async (req, res) => {
+            res.end();
+        };
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {status} = await request.get('/');
+    
+    t.deepEqual(status, 200, 'should equal');
+    t.end();
+});
