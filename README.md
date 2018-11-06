@@ -30,7 +30,7 @@ await request.get('/', {
 
 const pullout = require('pullout');
 const putMiddleware = () => callbackify(async (req, res) => {
-    const body = pullout(req);
+    const body = await pullout(req);
     res.end(body);
 });
 
