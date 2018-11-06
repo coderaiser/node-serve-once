@@ -1,0 +1,5 @@
+2018.11.06, v1.1.0
+
+feature:
+- (serve-once) add support of default options
+
