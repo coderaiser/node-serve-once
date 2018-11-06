@@ -33,7 +33,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "node-fetch": "^2.2.1",
-    "pullout": "^2.0.0"
+    "pullout": "^2.0.0",
+    "zames": "^2.0.1"
   },
   "license": "MIT",
   "engines": {

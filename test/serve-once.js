@@ -70,3 +70,30 @@ test('serve-once: fetch: put', async (t) => {
     t.end();
 });
 
+test('serve-once: fetch: get', async (t) => {
+    const middleware = (config) => {
+        return (req, res) => {
+            res.end(JSON.stringify(config));
+        };
+    };
+    
+    const {request} = serveOnce(middleware, {
+        a: 1,
+    });
+    
+    const options = {
+        b: 2,
+    };
+    
+    const {body} = await request.get('/', {options});
+    const result = JSON.parse(body);
+    
+    const expected = {
+        a: 1,
+        b: 2,
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+

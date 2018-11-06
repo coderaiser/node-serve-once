@@ -53,6 +53,26 @@ console.log(JSON.parse(body));
 // returns
 [1, 2, 3]
 
+// default options
+const middleware = (options) => (req, res) => {
+    res.end(JSON.stringify(options));
+};
+
+const {request} = require('serve-once')(middleware, {
+    a: 1,
+});
+
+const options = {
+    b: 2,
+};
+
+const result = await request('get', '/', {options});
+JSON.parse(result);
+// returns
+{
+    a: 1,
+    b: 2,
+}
 ```
 
 ## License
