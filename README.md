@@ -3,6 +3,15 @@ Serve Once [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][N
 
 Serve express middleware once.
 
+1. creates http server on a free port
+2. uses passed express middleware
+3. serve exectly 1 request
+4. closes http server
+5. [pullout](https://github.com/coderaiser/pullout) body of request stream
+6. resolves request promise with a response
+
+Good for middleware logic testing.
+
 ## Install
 
 ```
