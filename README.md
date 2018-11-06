@@ -49,12 +49,12 @@ console.log(JSON.parse(body));
 ## License
 MIT
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/node-serve-once.svg?style=flat
+[NPMIMGURL]:                https://img.shields.io/npm/v/serve-once.svg?style=flat
 [BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/node-serve-once/master.svg?style=flat
 [DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/node-serve-once.svg?style=flat
 [LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/node-serve-once/badge.svg?branch=master&service=github
-[NPMURL]:                   https://npmjs.org/package/node-serve-once "npm"
+[NPMURL]:                   https://npmjs.org/package/serve-once "npm"
 [BuildStatusURL]:           https://travis-ci.org/coderaiser/node-serve-once  "Build Status"
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/node-serve-once "Dependency Status"
 [LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
