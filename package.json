@@ -31,11 +31,11 @@
     "report": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
+    "currify": "^3.0.0",
     "express": "^5.0.0-alpha.7",
     "node-fetch": "^2.2.1",
     "pullout": "^2.0.0",
-    "webpack-merge": "^4.1.4",
-    "zames": "^2.0.1"
+    "webpack-merge": "^4.1.4"
   },
   "license": "MIT",
   "engines": {
