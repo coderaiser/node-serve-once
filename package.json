@@ -1,6 +1,6 @@
 {
   "name": "serve-once",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "serve express middleware once",
   "homepage": "http://github.com/coderaiser/node-serve-once",
