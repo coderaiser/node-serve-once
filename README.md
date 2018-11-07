@@ -36,23 +36,30 @@ await request.get('/', {
 });
 // returns
 'any'
+```
 
+You can send body:
+
+```js
 const pullout = require('pullout');
-const putMiddleware = () => callbackify(async (req, res) => {
+const putMiddleware = () => async (req, res) => {
     const body = await pullout(req);
     res.end(body);
-});
+};
 
 const {request} = require('serve-once')(putMiddleware);
 const {body} = await request.put('/', {
     body: [1, 2, 3],
-    options: 'any'
 });
 
 console.log(JSON.parse(body));
 // returns
 [1, 2, 3]
+```
 
+You can use default options:
+
+```js
 // default options
 const middleware = (options) => (req, res) => {
     res.end(JSON.stringify(options));
@@ -66,8 +73,8 @@ const options = {
     b: 2,
 };
 
-const result = await request('get', '/', {options});
-JSON.parse(result);
+const {body} = await request.get('/', {options});
+JSON.parse(body);
 // returns
 {
     a: 1,
