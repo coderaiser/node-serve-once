@@ -31,7 +31,6 @@
     "report": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "currify": "^3.0.0",
     "express": "^5.0.0-alpha.7",
     "node-fetch": "^2.2.1",
     "pullout": "^2.0.0",
