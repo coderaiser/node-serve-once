@@ -1,3 +1,9 @@
+2018.11.08, v1.4.0
+
+feature:
+- (serve-once) add type buffer support
+
+
 2018.11.08, v1.3.0
 
 feature:
