@@ -141,3 +141,17 @@ test('serve-once: fetch: type: json', async (t) => {
     t.end();
 });
 
+test('serve-once: fetch: type: json', async (t) => {
+    const middleware = () => async (req, res) => {
+        res.end('a');
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {body} = await request.get('/', {
+        type: 'buffer',
+    });
+    
+    t.deepEqual(body, Buffer.from('a'), 'should equal');
+    t.end();
+});
+

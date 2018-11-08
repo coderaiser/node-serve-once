@@ -30,6 +30,7 @@ npm i serve-once
   - string
   - json
   - stream
+  - buffer
 
 ```js
 const middleware = (options = 'hello') => (req, res) => {
