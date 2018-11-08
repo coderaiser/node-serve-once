@@ -20,6 +20,17 @@ npm i serve-once
 
 ## API
 
+### request(method, path[ {options, body, type = 'string'}])
+
+- **method** - `http`-method (`get`, `put`, `post` etc)
+- **path** - `http`-path
+- **options** - middleware options
+- **body** - `http`-request `body`
+- **type** - type of return value, can be:
+  - string
+  - json
+  - stream
+
 ```js
 const middleware = (options = 'hello') => (req, res) => {
     res.end(JSON.stringify(options));

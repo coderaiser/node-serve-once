@@ -4,7 +4,8 @@ const {
     promisify,
 } = require('util');
 
-const test = require('tape');
+const tryToTape = require('try-to-tape');
+const test = tryToTape(require('tape'));
 const tryCatch = require('try-catch');
 const pullout = promisify(require('pullout'));
 
@@ -109,3 +110,34 @@ test('serve-once: fetch: status', async (t) => {
     t.deepEqual(status, 200, 'should equal');
     t.end();
 });
+
+test('serve-once: fetch: type: stream', async (t) => {
+    const middleware = () => async (req, res) => {
+        res.end('hello');
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {body} = await request.get('/', {
+        type: 'stream',
+    });
+    
+    const result = await pullout(body, 'string');
+    
+    t.equal(result, 'hello', 'should equal');
+    t.end();
+});
+
+test('serve-once: fetch: type: json', async (t) => {
+    const middleware = () => async (req, res) => {
+        res.end('[1, 2]');
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {body} = await request.get('/', {
+        type: 'json',
+    });
+    
+    t.deepEqual(body, [1, 2], 'should equal');
+    t.end();
+});
+
