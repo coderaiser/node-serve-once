@@ -155,3 +155,22 @@ test('serve-once: fetch: type: json', async (t) => {
     t.end();
 });
 
+test('serve-once: fetch: headers', async (t) => {
+    const middleware = () => async (req, res) => {
+        res.json(req.headers);
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {body} = await request.get('/', {
+        headers: {
+            authorization: 'basic'
+        },
+        type: 'json',
+    });
+    
+    const {authorization} = body;
+    
+    t.deepEqual(authorization, 'basic', 'should equal');
+    t.end();
+});
+

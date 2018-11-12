@@ -26,6 +26,7 @@ npm i serve-once
 - **path** - `http`-path
 - **options** - middleware options
 - **body** - `http`-request `body`
+- **headers** - `http`-request `headers`
 - **type** - type of return value, can be:
   - string
   - json
