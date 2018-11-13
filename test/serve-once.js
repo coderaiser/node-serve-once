@@ -1,13 +1,9 @@
 'use strict';
 
-const {
-    promisify,
-} = require('util');
-
 const tryToTape = require('try-to-tape');
 const test = tryToTape(require('tape'));
 const tryCatch = require('try-catch');
-const pullout = promisify(require('pullout'));
+const pullout = require('pullout');
 
 const serveOnce = require('..');
 
