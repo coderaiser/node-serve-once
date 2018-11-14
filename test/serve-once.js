@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 const tryToTape = require('try-to-tape');
 const test = tryToTape(require('tape'));
 const tryCatch = require('try-catch');
@@ -167,6 +169,23 @@ test('serve-once: fetch: headers', async (t) => {
     const {authorization} = body;
     
     t.deepEqual(authorization, 'basic', 'should equal');
+    t.end();
+});
+
+test('serve-once: fetch: put: stream', async (t) => {
+    const middleware = () => async (req, res) => {
+        const data = await pullout(req);
+        res.send(data);
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {body} = await request.put('/', {
+        body: fs.createReadStream(__filename),
+    });
+    
+    const data = fs.readFileSync(__filename, 'utf8');
+    
+    t.equal(body, data, 'should equal');
     t.end();
 });
 
