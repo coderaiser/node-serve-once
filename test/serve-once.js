@@ -171,6 +171,26 @@ test('serve-once: fetch: headers', async (t) => {
     t.end();
 });
 
+test('serve-once: post', async (t) => {
+    const middleware = () => async (req, res) => {
+        if (req.method === 'POST') {
+            const data = await pullout(req, 'string');
+            res.end(data);
+            return;
+        }
+        
+        res.end('error');
+    };
+    
+    const {request} = serveOnce(middleware);
+    const {body} = await request.post('/', {
+        body: 'ok',
+    });
+    
+    t.deepEqual(body, 'ok', 'should equal');
+    t.end();
+});
+
 test('serve-once: fetch: put: stream', async (t) => {
     const middleware = () => async (req, res) => {
         const data = await pullout(req);
