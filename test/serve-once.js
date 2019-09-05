@@ -2,15 +2,14 @@
 
 const fs = require('fs');
 
-const tryToTape = require('try-to-tape');
-const test = tryToTape(require('tape'));
+const test = require('supertape');
 const tryCatch = require('try-catch');
 const pullout = require('pullout');
 
 const serveOnce = require('..');
 
 test('serve-once: no middleware', (t) => {
-    const [e] = tryCatch(serveOnce)
+    const [e] = tryCatch(serveOnce);
     
     t.equal(e.message, 'middleware should be a function!', 'should equal');
     t.end();
@@ -161,7 +160,7 @@ test('serve-once: fetch: headers', async (t) => {
     const {request} = serveOnce(middleware);
     const {body} = await request.get('/', {
         headers: {
-            authorization: 'basic'
+            authorization: 'basic',
         },
         type: 'json',
     });
