@@ -50,6 +50,6 @@
     "pullout": "^4.0.0",
     "putout": "^7.13.1",
     "supertape": "^1.2.3",
-    "try-catch": "^2.0.0"
+    "try-catch": "^3.0.0"
   }
 }
