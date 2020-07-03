@@ -96,7 +96,7 @@ test('serve-once: fetch: get', async (t) => {
 
 test('serve-once: fetch: status', async (t) => {
     const middleware = () => {
-        return async (req, res) => {
+        return (req, res) => {
             res.end();
         };
     };
@@ -109,7 +109,7 @@ test('serve-once: fetch: status', async (t) => {
 });
 
 test('serve-once: fetch: type: stream', async (t) => {
-    const middleware = () => async (req, res) => {
+    const middleware = () => (req, res) => {
         res.end('hello');
     };
     
@@ -125,7 +125,7 @@ test('serve-once: fetch: type: stream', async (t) => {
 });
 
 test('serve-once: fetch: type: json', async (t) => {
-    const middleware = () => async (req, res) => {
+    const middleware = () => (req, res) => {
         res.end('[1, 2]');
     };
     
@@ -139,7 +139,7 @@ test('serve-once: fetch: type: json', async (t) => {
 });
 
 test('serve-once: fetch: type: json', async (t) => {
-    const middleware = () => async (req, res) => {
+    const middleware = () => (req, res) => {
         res.end('a');
     };
     
@@ -153,7 +153,7 @@ test('serve-once: fetch: type: json', async (t) => {
 });
 
 test('serve-once: fetch: headers', async (t) => {
-    const middleware = () => async (req, res) => {
+    const middleware = () => (req, res) => {
         res.json(req.headers);
     };
     
