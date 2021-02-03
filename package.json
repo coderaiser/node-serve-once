@@ -55,7 +55,7 @@
     "nyc": "^15.0.0",
     "pullout": "^4.0.0",
     "putout": "^9.1.0",
-    "supertape": "^2.0.1",
+    "supertape": "^4.9.1",
     "try-catch": "^3.0.0"
   }
 }
