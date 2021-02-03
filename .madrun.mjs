@@ -1,10 +1,10 @@
-'use strict';
+import {run} from 'madrun';
 
-const {run} = require('madrun');
-
-module.exports = {
+export default {
     'test': () => 'tape test/*.js',
-    'lint': () => 'putout lib test .madrun.js',
+    'lint': () => 'putout .',
+    'fresh:lint': () => run('lint', '--fresh'),
+    'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
     'watch:test': () => run('watcher', '"npm test"'),
     'watcher': () => 'nodemon -w lib -w test -x',

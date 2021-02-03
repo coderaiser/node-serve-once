@@ -20,12 +20,6 @@
     "type": "git",
     "url": "git://github.com/coderaiser/node-serve-once.git"
   },
-  "nyc": {
-    "exclude": [
-      "test",
-      ".*.js"
-    ]
-  },
   "scripts": {
     "test": "madrun test",
     "lint": "madrun lint",
