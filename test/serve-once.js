@@ -29,6 +29,20 @@ test('serve-once: fetch: get', async (t) => {
     t.end();
 });
 
+test('serve-once: fetch: head', async (t) => {
+    const middleware = () => {
+        return (req, res) => {
+            res.end('hello');
+        };
+    };
+    
+    const {request} = serveOnce(middleware);
+    const response = await request.head('/');
+    
+    t.ok(response, 'should return response');
+    t.end();
+});
+
 test('serve-once: fetch: put: string', async (t) => {
     const middleware = () => {
         return async (req, res) => {
