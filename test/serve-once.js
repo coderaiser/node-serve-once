@@ -11,29 +11,25 @@ const serveOnce = require('..');
 test('serve-once: no middleware', (t) => {
     const [e] = tryCatch(serveOnce);
     
-    t.equal(e.message, 'middleware should be a function!', 'should equal');
+    t.equal(e.message, 'middleware should be a function!');
     t.end();
 });
 
 test('serve-once: fetch: get', async (t) => {
-    const middleware = () => {
-        return (req, res) => {
-            res.end('hello');
-        };
+    const middleware = () => (req, res) => {
+        res.end('hello');
     };
     
     const {request} = serveOnce(middleware);
     const {body} = await request.get('/');
     
-    t.equal(body, 'hello', 'should equal');
+    t.equal(body, 'hello');
     t.end();
 });
 
 test('serve-once: fetch: head', async (t) => {
-    const middleware = () => {
-        return (req, res) => {
-            res.end('hello');
-        };
+    const middleware = () => (req, res) => {
+        res.end('hello');
     };
     
     const {request} = serveOnce(middleware);
@@ -44,11 +40,9 @@ test('serve-once: fetch: head', async (t) => {
 });
 
 test('serve-once: fetch: put: string', async (t) => {
-    const middleware = () => {
-        return async (req, res) => {
-            const data = await pullout(req, 'string');
-            res.end(data);
-        };
+    const middleware = () => async (req, res) => {
+        const data = await pullout(req, 'string');
+        res.end(data);
     };
     
     const {request} = serveOnce(middleware);
@@ -56,36 +50,33 @@ test('serve-once: fetch: put: string', async (t) => {
         body: 'hello',
     });
     
-    t.equal(body, 'hello', 'should equal');
+    t.equal(body, 'hello');
     t.end();
 });
 
 test('serve-once: fetch: put', async (t) => {
-    const middleware = () => {
-        return async (req, res) => {
-            const data = await pullout(req, 'string');
-            
-            res.end(data);
-        };
+    const middleware = () => async (req, res) => {
+        const data = await pullout(req, 'string');
+        
+        res.end(data);
     };
     
     const data = [1, 2];
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.put('/', {
         body: data,
     });
     
     const result = JSON.parse(body);
     
-    t.deepEqual(result, data, 'should equal');
+    t.deepEqual(result, data);
     t.end();
 });
 
-test('serve-once: fetch: get', async (t) => {
-    const middleware = (config) => {
-        return (req, res) => {
-            res.end(JSON.stringify(config));
-        };
+test('serve-once: fetch: get: json', async (t) => {
+    const middleware = (config) => (req, res) => {
+        res.end(JSON.stringify(config));
     };
     
     const {request} = serveOnce(middleware, {
@@ -96,7 +87,10 @@ test('serve-once: fetch: get', async (t) => {
         b: 2,
     };
     
-    const {body} = await request.get('/', {options});
+    const {body} = await request.get('/', {
+        options,
+    });
+    
     const result = JSON.parse(body);
     
     const expected = {
@@ -104,21 +98,19 @@ test('serve-once: fetch: get', async (t) => {
         b: 2,
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
 test('serve-once: fetch: status', async (t) => {
-    const middleware = () => {
-        return (req, res) => {
-            res.end();
-        };
+    const middleware = () => (req, res) => {
+        res.end();
     };
     
     const {request} = serveOnce(middleware);
     const {status} = await request.get('/');
     
-    t.deepEqual(status, 200, 'should equal');
+    t.equal(status, 200);
     t.end();
 });
 
@@ -134,11 +126,11 @@ test('serve-once: fetch: type: stream', async (t) => {
     
     const result = await pullout(body, 'string');
     
-    t.equal(result, 'hello', 'should equal');
+    t.equal(result, 'hello');
     t.end();
 });
 
-test('serve-once: fetch: type: json', async (t) => {
+test('serve-once: fetch: type: json: array', async (t) => {
     const middleware = () => (req, res) => {
         res.end('[1, 2]');
     };
@@ -148,11 +140,11 @@ test('serve-once: fetch: type: json', async (t) => {
         type: 'json',
     });
     
-    t.deepEqual(body, [1, 2], 'should equal');
+    t.deepEqual(body, [1, 2]);
     t.end();
 });
 
-test('serve-once: fetch: type: json', async (t) => {
+test('serve-once: fetch: type: buffer', async (t) => {
     const middleware = () => (req, res) => {
         res.end('a');
     };
@@ -162,7 +154,7 @@ test('serve-once: fetch: type: json', async (t) => {
         type: 'buffer',
     });
     
-    t.deepEqual(body, Buffer.from('a'), 'should equal');
+    t.deepEqual(body, Buffer.from('a'));
     t.end();
 });
 
@@ -181,7 +173,7 @@ test('serve-once: fetch: headers', async (t) => {
     
     const {authorization} = body;
     
-    t.deepEqual(authorization, 'basic', 'should equal');
+    t.equal(authorization, 'basic');
     t.end();
 });
 
@@ -190,6 +182,7 @@ test('serve-once: post', async (t) => {
         if (req.method === 'POST') {
             const data = await pullout(req, 'string');
             res.end(data);
+            
             return;
         }
         
@@ -201,7 +194,7 @@ test('serve-once: post', async (t) => {
         body: 'ok',
     });
     
-    t.deepEqual(body, 'ok', 'should equal');
+    t.equal(body, 'ok');
     t.end();
 });
 
@@ -218,7 +211,6 @@ test('serve-once: fetch: put: stream', async (t) => {
     
     const data = fs.readFileSync(__filename, 'utf8');
     
-    t.equal(body, data, 'should equal');
+    t.equal(body, data);
     t.end();
 });
-
