@@ -40,6 +40,7 @@
   },
   "main": "lib/serve-once.js",
   "devDependencies": {
+    "c8": "^9.1.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.3.1",
     "eslint-plugin-node": "^11.0.0",
