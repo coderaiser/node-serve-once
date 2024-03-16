@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "express": "^5.0.0-alpha.7",
-    "webpack-merge": "^5.1.1",
-    "pullout": "^4.0.0"
+    "pullout": "^5.0.0",
+    "webpack-merge": "^5.1.1"
   },
   "license": "MIT",
   "engines": {
