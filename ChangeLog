@@ -1,3 +1,17 @@
+2024.03.16, v3.0.0
+
+feature:
+- 0cb641e serve-once: get rid of node-fetch
+- c974ed6 serve-once: drop support of node < 18
+- 4e52a17 serve-once: eslint v8.57.0
+- 47bed02 serve-once: nodemon v3.1.0
+- c8681f7 serve-once: c8 v9.1.0
+- 47c7f8d serve-once: supertape v10.4.0
+- dc30611 serve-once: madrun v10.0.1
+- 273820a serve-once: eslint-plugin-putout v22.4.1
+- f9dcd44 serve-once: putout v35.7.4
+- 7160834 serve-once: node-fetch v3.3.2
+
 2021.02.03, v2.1.0
 
 feature:
