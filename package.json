@@ -33,7 +33,7 @@
   "dependencies": {
     "express": "^5.2.1",
     "pullout": "^5.0.1",
-    "webpack-merge": "^5.1.1"
+    "webpack-merge": "^6.0.1"
   },
   "license": "MIT",
   "engines": {
