@@ -33,13 +33,14 @@ npm i serve-once
   - buffer
 
 ```js
+import {serveOnce} from 'serve-once';
+
 const middleware = (options = 'hello') => (req, res) => {
     res.end(JSON.stringify(options));
 };
+const {request} = serveOnce(middleware);
 
-import {serveOnce} from 'serve-once'const {request} = serveOnce(middleware);
-
- request('get', '/');
+request('get', '/');
 // returns
 'hello';
 
