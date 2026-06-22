@@ -42,7 +42,7 @@
   "main": "lib/serve-once.js",
   "devDependencies": {
     "c8": "^11.0.0",
-    "eslint": "^8.57.0",
+    "eslint": "^10.5.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^22.4.1",
     "madrun": "^10.0.1",
