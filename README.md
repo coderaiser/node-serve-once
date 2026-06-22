@@ -64,9 +64,9 @@ await request.get('/', {
 You can send body:
 
 ```js
+import {pullout} from 'pullout';
 import {serveOnce} from 'serve-once';
 
-const pullout = require('pullout');
 const putMiddleware = () => async (req, res) => {
     const body = await pullout(req);
     res.end(body);
