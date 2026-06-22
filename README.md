@@ -38,6 +38,7 @@ import {serveOnce} from 'serve-once';
 const middleware = (options = 'hello') => (req, res) => {
     res.end(JSON.stringify(options));
 };
+
 const {request} = serveOnce(middleware);
 
 request('get', '/');
