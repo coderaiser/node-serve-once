@@ -4,7 +4,7 @@
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "serve express middleware once",
-  "homepage": "http://github.com/coderaiser/node-serve-once",
+  "homepage": "https://github.com/coderaiser/node-serve-once",
   "keywords": [
     "express",
     "middleware",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/node-serve-once.git"
+    "url": "git+https://github.com/coderaiser/node-serve-once.git"
   },
   "scripts": {
     "test": "madrun test",
