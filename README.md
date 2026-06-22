@@ -50,7 +50,7 @@ const middleware = (options = 'hello') => (req, res) => {
 
 const {request} = serveOnce(middleware);
 
-request('get', '/');
+await request('get', '/');
 // returns
 'hello';
 
@@ -70,7 +70,9 @@ const putMiddleware = () => async (req, res) => {
     res.end(body);
 };
 
-const {request} = require('serve-once')(putMiddleware);
+import {serveOnce} from 'serve-once';
+
+const {request} = serveOnce(putMiddleware);
 
 const {body} = await request.put('/', {
     body: [1, 2, 3],
@@ -84,12 +86,14 @@ console.log(JSON.parse(body));
 You can use default options:
 
 ```js
+import {serveOnce} from 'serve-once';
+
 // default options
 const middleware = (options) => (req, res) => {
     res.end(JSON.stringify(options));
 };
 
-const {request} = require('serve-once')(middleware, {
+const {request} = serveOnce(middleware, {
     a: 1,
 });
 
