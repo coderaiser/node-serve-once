@@ -1,13 +1,12 @@
-'use strict';
+import {Buffer} from 'node:buffer';
+import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {test} from 'supertape';
+import {tryCatch} from 'try-catch';
+import pullout from 'pullout';
+import {serveOnce} from '../lib/serve-once.js';
 
-const {Buffer: Buffer} = require('node:buffer');
-const fs = require('node:fs');
-
-const {test} = require('supertape');
-const {tryCatch} = require('try-catch');
-const pullout = require('pullout');
-
-const serveOnce = require('..');
+const __filename = fileURLToPath(import.meta.url);
 
 test('serve-once: no middleware', (t) => {
     const [e] = tryCatch(serveOnce);

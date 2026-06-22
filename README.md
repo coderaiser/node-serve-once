@@ -37,9 +37,9 @@ const middleware = (options = 'hello') => (req, res) => {
     res.end(JSON.stringify(options));
 };
 
-const {request} = require('serve-once')(middleware);
+import {serveOnce} from 'serve-once'const {request} = serveOnce(middleware);
 
-await request('get', '/');
+ request('get', '/');
 // returns
 'hello';
 

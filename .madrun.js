@@ -1,7 +1,7 @@
 import {run} from 'madrun';
 
 const env = {
-    SUPERC8_RESPONSIVE: 1
+    SUPERC8_RESPONSIVE: 1,
 };
 
 export default {
