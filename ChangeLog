@@ -1,3 +1,20 @@
+2026.06.22, v4.0.0
+
+feature:
+- 14eea1f migrate to ESM
+- f816d71 serve-once: c8: drop
+- b4a2879 serve-once: superc8 v12.7.0
+- 91887d8 serve-once: try-catch v4.0.9
+- 1d0b665 serve-once: supertape v13.2.0
+- 631ec7c serve-once: madrun v13.0.2
+- c6251a8 serve-once: eslint-plugin-putout v31.2.0
+- 20155c8 serve-once: eslint v10.5.0
+- 3f1370d serve-once: c8 v11.0.0
+- f70367a serve-once: webpack-merge v6.0.1
+- 3247af4 serve-once: pullout v5.0.1
+- 2ee04a0 serve-once: express v5.2.1
+- 392a7fb serve-once: putout v42.7.6
+
 2024.03.16, v3.0.2
 
 fix:
