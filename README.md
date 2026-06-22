@@ -1,5 +1,14 @@
 # Serve Once [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
+[NPMIMGURL]: https://img.shields.io/npm/v/serve-once.svg?style=flat
+[BuildStatusIMGURL]: https://github.com/coderaiser/node-serve-once/actions/workflows/nodejs.yml/badge.svg
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/node-serve-once/badge.svg?branch=master&service=github
+[NPMURL]: https://npmjs.org/package/serve-once "npm"
+[BuildStatusURL]: https://github.com/coderaiser/node-serve-once/actions/workflows/nodejs.yml "Build Status"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[CoverageURL]: https://coveralls.io/github/coderaiser/node-serve-once?branch=master
+
 Serve express middleware once.
 
 1. creates http server on a free port
@@ -104,12 +113,3 @@ JSON.parse(body);
 ## License
 
 MIT
-
-[NPMIMGURL]: https://img.shields.io/npm/v/serve-once.svg?style=flat
-[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/node-serve-once/master.svg?style=flat
-[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/node-serve-once/badge.svg?branch=master&service=github
-[NPMURL]: https://npmjs.org/package/serve-once "npm"
-[BuildStatusURL]: https://travis-ci.org/coderaiser/node-serve-once "Build Status"
-[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
-[CoverageURL]: https://coveralls.io/github/coderaiser/node-serve-once?branch=master
