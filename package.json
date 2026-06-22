@@ -31,7 +31,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "express": "^5.0.0-alpha.7",
+    "express": "^5.2.1",
     "pullout": "^5.0.0",
     "webpack-merge": "^5.1.1"
   },
