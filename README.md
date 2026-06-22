@@ -64,13 +64,13 @@ await request.get('/', {
 You can send body:
 
 ```js
+import {serveOnce} from 'serve-once';
+
 const pullout = require('pullout');
 const putMiddleware = () => async (req, res) => {
     const body = await pullout(req);
     res.end(body);
 };
-
-import {serveOnce} from 'serve-once';
 
 const {request} = serveOnce(putMiddleware);
 
