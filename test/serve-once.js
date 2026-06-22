@@ -1,9 +1,10 @@
 'use strict';
 
-const fs = require('fs');
+const {Buffer: Buffer} = require('node:buffer');
+const fs = require('node:fs');
 
-const test = require('supertape');
-const tryCatch = require('try-catch');
+const {test} = require('supertape');
+const {tryCatch} = require('try-catch');
 const pullout = require('pullout');
 
 const serveOnce = require('..');
@@ -46,6 +47,7 @@ test('serve-once: fetch: put: string', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.put('/', {
         body: 'hello',
     });
@@ -120,6 +122,7 @@ test('serve-once: fetch: type: stream', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.get('/', {
         type: 'stream',
     });
@@ -136,6 +139,7 @@ test('serve-once: fetch: type: json: array', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.get('/', {
         type: 'json',
     });
@@ -150,6 +154,7 @@ test('serve-once: fetch: type: buffer', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.get('/', {
         type: 'buffer',
     });
@@ -164,6 +169,7 @@ test('serve-once: fetch: headers', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.get('/', {
         headers: {
             authorization: 'basic',
@@ -190,6 +196,7 @@ test('serve-once: post', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.post('/', {
         body: 'ok',
     });
@@ -205,6 +212,7 @@ test('serve-once: fetch: put: stream', async (t) => {
     };
     
     const {request} = serveOnce(middleware);
+    
     const {body} = await request.put('/', {
         body: fs.createReadStream(__filename),
     });

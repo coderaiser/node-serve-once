@@ -1,5 +1,9 @@
 import {run} from 'madrun';
 
+const env = {
+    SUPERC8_RESPONSIVE: 1
+};
+
 export default {
     'test': () => 'tape test/*.js',
     'lint': () => 'putout .',
@@ -8,6 +12,6 @@ export default {
     'fix:lint': () => run('lint', '--fix'),
     'watch:test': () => run('watcher', '"npm test"'),
     'watcher': () => 'nodemon -w lib -w test -x',
-    'coverage': () => 'c8 npm test',
+    'coverage': () => [env, 'c8 npm test'],
     'report': () => 'c8 report --reporter=lcov',
 };

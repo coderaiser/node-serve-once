@@ -46,7 +46,6 @@ await request('get', '/');
 await request.get('/', {
     options: 'any',
 });
-
 // returns
 'any';
 ```
@@ -92,6 +91,7 @@ const {body} = await request.get('/', {
 });
 
 JSON.parse(body);
+
 // returns
 ({
     a: 1,
